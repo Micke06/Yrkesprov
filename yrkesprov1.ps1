@@ -14,6 +14,19 @@ rondo_id INTEGER);"
 Invoke-sqlitequery -query $query -Datasource $database
 
 $tilldatabasen | ForEach-Object {
+                     $tosite_number = $_.Tositenumero
+                     $Kustannus_id = $_.Kustannuspaikka
+                     $Kustannus_name = $_.'Kustannuspaikan nimi'
+                     $tositename = $_.Selite
+                     $euro_brutto = $_.'EUR, brutto'
+                     $rondo_id = $_.'Rondo ID'
+                        
+                     }
 
+
+
+
+                     
 $query = "INSERT INTO Yrkesprov1
+
 
