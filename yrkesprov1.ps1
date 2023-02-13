@@ -20,7 +20,10 @@ $tilldatabasen | ForEach-Object {
                      $tositename = $_.Selite
                      $euro_brutto = $_.'EUR, brutto'
                      $rondo_id = $_.'Rondo ID'
-                        
+   
+   $query = "INSERT INTO price (timestamp price) VALUES ($timestamp, $price, 'test');"
+                Invoke-SqliteQuery -query $query -Datasource $database
+                    
                      }
 
 
