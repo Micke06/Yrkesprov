@@ -17,17 +17,23 @@ Invoke-sqlitequery -query $query -Datasource $database
 
 $Counter = 0
 
-$csv -replace ("'","")
+
 
 $Csv | ForEach-Object {
 $Counter = $Counter + 1
 $Counter
                      $tosite_number = $_.Tositenumero
+
                      $Kustannus_id = $_.Kustannuspaikka
+
                      $Kustannus_name = $_.'Kustannuspaikan nimi'
-                     $tositename = $_.Selite
-                     $euro_brutto = $_.'EUR, brutto'
+
+                     $tositename = $_.Selite.Replace("'" ,"")
+
+                     $euro_brutto = $_.'EUR, brutto'.replace(" " ,"")
+
                      $rondo_id = $_.'Rondo ID'
+
    
                      $query = "INSERT INTO PORVOO (tosite_number, kustannus_id, kustannus_name, tositename, euro_brutto, rondo_id) VALUES ('$tosite_number','$Kustannus_id','$Kustannus_name','$tositename','$euro_brutto','$rondo_id');"
                      Invoke-SqliteQuery -query $query -Datasource $database
