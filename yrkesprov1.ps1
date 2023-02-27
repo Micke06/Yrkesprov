@@ -38,3 +38,9 @@ $Counter
                      $query = "INSERT INTO PORVOO (tosite_number, kustannus_id, kustannus_name, tositename, euro_brutto, rondo_id) VALUES ('$tosite_number','$Kustannus_id','$Kustannus_name','$tositename','$euro_brutto','$rondo_id');"
                      Invoke-SqliteQuery -query $query -Datasource $database
                      }
+                     
+                     
+                     
+                     
+                      sudo apt install /home/kenny/Downloads/code_1.75.1-1675893397_amd64.deb
+
