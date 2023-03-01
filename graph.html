@@ -3,27 +3,27 @@
 <head>
     <meta charset="UTF-8">
 
-    <title>chart</title>
+    <title>Chart</title>
     <script src="https://cdn.jsdelivr.net/npm/chart.js@2.9.4/dist/chart.min.js"></script>
 </head>
 <body>
-    <canvas id="linechart" width="800" height="400"></canvas>
+    <canvas id="lineChart" width="800" height="400"></canvas>
     <script>
-        var ctx = document.getelementByID("linechart").getcontext("2d");
+        var ctx = document.getElementById("lineChart").getContext("2d");
         var lineChart = new Chart(ctx, {
             type: "line",
             data: {
-                labels:{{ labels | safe }},
+                labels: {{ labels | safe }},
                 datasets: [
                     {
                         label: "Data points",
                         data: {{ values | safe }},
-                        fill: false
-                      //  boarderColor: "rgb(75, 191, 191)",
-                      // lineTension: 0.1
+                        fill: false,
+                      /*  borderColor: "rgb(75, 191, 191)",   */
+                      /* lineTension: 0.1   */
                     }
                 ]
-            },
+                },
             options: {
                 responsive: false
             }
