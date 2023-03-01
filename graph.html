@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+
+    <title>chart</title>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js@2.9.4/dist/chart.min.js"></script>
+</head>
+<body>
+    <canvas id="linechart" width="800" height="400"></canvas>
+    <script>
+        var ctx = document.getelementByID("linechart").getcontext("2d");
+        var lineChart = new Chart(ctx, {
+            type: "line",
+            data: {
+                labels:{{ labels | safe }},
+                datasets: [
+                    {
+                        label: "Data points",
+                        data: {{ values | safe }},
+                        fill: false
+                      //  boarderColor: "rgb(75, 191, 191)",
+                      // lineTension: 0.1
+                    }
+                ]
+            },
+            options: {
+                responsive: false
+            }
+        });
+        </script>
+        </body>
+</html>
