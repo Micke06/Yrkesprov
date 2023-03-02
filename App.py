@@ -16,6 +16,7 @@ def home():
         ("01-08-2020", 145),
         ("01-09-2020", 725),
     ]
+    colors = ['rgb(255, 99, 132)','rgb(54, 162, 235)','rgb(255, 205, 86)','rgb(25, 135, 69)', 'rgb(139, 100, 100)','rgb(10, 255, 20)', 'rgb(255,255, 86)','rgb(255, 178, 90)','rgb(155, 150, 69)']
    
    
  
@@ -33,7 +34,7 @@ def home():
         
         
     #return data
-    return render_template("graph.html", labels=labels, values=values)
+    return render_template("graph.html", labels=labels, values=values, colors=colors )
 
 if __name__ == "__main__":
     app.run(port=8000, debug=True)
