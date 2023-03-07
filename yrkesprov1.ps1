@@ -41,21 +41,19 @@ $Csv | ForEach-Object {
      
      
 
-     $database ="/home/kenny/Yrkesprov1.db"
-     $query = "CREATE TABLE COLORS (INTEGER PRIMARY KEY,
-     Red INTEGER,
-     Green INTEGER,
-     Blue INTEGER);"
-
-     Invoke-sqlitequery -query $query -Datasource $database
-
-
-     ForEach-Object {
-
-     $query = "INSERT INTO COLORS (Red, Green, Blue) VALUES ('255', '99', '132'), ('54', '162', '235'), ('255', '205', '86'), ('25', '135', '69'), ('139', '100', '100');"
-     Invoke-SqliteQuery -query $query -Datasource $database
      
+     
+     $Query = "CREATE TABLE colors (id INTEGER PRIMARY KEY, 
+     hex TEXT);"
+
+Invoke-SqliteQuery -Query $Query -DataSource $Database
 
 
-     invoke-sqlitequery -query "select * from COLORS" -datasource $database
-     }
+
+$query = "INSERT INTO colors (hex) 
+VALUES 
+('59c1a6'),('c32125'),('1b5f87'),('671495'),('38071e');"
+Invoke-SqliteQuery -Query $Query -DataSource $Database
+
+
+$colordb = Invoke-SqliteQuery -Query "select * from colors;" -DataSource $Database
