@@ -1,0 +1,14 @@
+$Query = "CREATE TABLE colors (id INTEGER PRIMARY KEY, 
+                               hex TEXT);"
+
+Invoke-SqliteQuery -Query $Query -DataSource $Database
+
+
+
+$query = "INSERT INTO colors (hex) 
+VALUES 
+    ('59c1a6'),('c32125'),('1b5f87'),('671495'),('38071e');"
+    Invoke-SqliteQuery -Query $Query -DataSource $Database
+
+
+    $colordb = Invoke-SqliteQuery -Query "select * from colors;" -DataSource $Database
