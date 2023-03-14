@@ -11,8 +11,9 @@
     <script>
         var ctx = document.getElementById("lineChart").getContext("2d");
         var lineChart = new Chart(ctx, {
-            type: "pie",
+            type: "doughnut",
             data: {
+               
                 labels: {{ labels | safe }},
                 
                 datasets: [
@@ -25,14 +26,23 @@
                         backgroundColor: {{ colors | safe }}, 
   
                         lineTension: 0.1
+                 
                     }
                 ]
+            
             },
             options: {
-                responsive: false
+                responsive: false,
+                    title: {
+                        display: true,
+                        text: "top 5 kostands-ställen i borgå (i miljoner euro)"
+
+
             }
+            }
+    
+
         });
     </script>
  </body>
 </html>
-
