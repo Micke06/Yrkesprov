@@ -53,7 +53,7 @@ $Csv | ForEach-Object {
                     Invoke-SqliteQuery -query $query -Datasource $database
                      }
 
-
+#57 kallar på sqlite och tar all information. om man har en * så tar det all information.
      invoke-sqlitequery -query "select * from PORVOO" -datasource $database       
      
      
@@ -61,20 +61,22 @@ $Csv | ForEach-Object {
      
 
      
-     
+#66 lagar tabellen som heter colors
+#67 Skapar en kolumn som heter hex 
      $Query = "CREATE TABLE colors (id INTEGER PRIMARY KEY, 
      hex TEXT);"
 
+#70 lagar tabellen colors in till databasen
 Invoke-SqliteQuery -Query $Query -DataSource $Database
 
 
-
+#74-77 lagar värdena som jag har skrivit på rad 76 in till databasen. rad 77 lag all information in till databasen
 $query = "INSERT INTO colors (hex) 
 VALUES 
 ('59c1a6'),('c32125'),('1b5f87'),('671495'),('38071e');"
 Invoke-SqliteQuery -Query $Query -DataSource $Database
 
-
+#80 kallar på sqlite och tar all information.
 $colordb = Invoke-SqliteQuery -Query "select * from colors;" -DataSource $Database
 
 
