@@ -1,3 +1,5 @@
+#4 importerar flask
+#4importerar sqlite3
 from flask import Flask, render_template
 import sqlite3
 
@@ -6,69 +8,54 @@ app = Flask(__name__)
 @app.route("/")
 def home():                                                                                                                                                  
  
+ #15 ansluter sqlite3 till databasen
+ #16 gör så att man läsa databasen
+ #17 läser kustannus_Id, kustannus_name och så avrundar det euro_brutto så att den har en decimal och så delar det talet med 1000000. sen tar den de 5 högsta talen från kustannus_id och euro brutto.
+ #18 kör rad 15-17
     con = sqlite3.connect("Yrkesprov1.db")
     cur = con.cursor()
- 
     cur.execute('SELECT kustannus_id, kustannus_name, ROUND(sum(euro_brutto)/1000000, 1) FROM porvoo GROUP BY kustannus_id ORDER BY sum(euro_brutto) DESC LIMIT 5;')
     data = cur.fetchall()
-
+#20 stänger rad 15-18
     con.close()
-   # data = [
-        #("01-01-2020", 1597),
-        #("01-02-2020", 1456),
-       # ("01-03-2020", 1908),
-       # ("01-04-2020", 896),
-      #  ("01-05-2020", 755),
-
-      #  ("01-06-2020", 355),
-      #  ("01-07-2020", 155),
-      #  ("01-08-2020", 145),
-      #  ("01-09-2020", 725),
-   # ]
-    #colors = ['rgb(255, 99, 132)','rgb(54, 162, 235)','rgb(255, 205, 86)','rgb(25, 135, 69)', 'rgb(139, 100, 100)','rgb(10, 255, 20)', 'rgb(255,255, 86)','rgb(255, 178, 90)','rgb(155, 150, 69)']
-    #with open ('Yrkesprov1.db', encoding="latin1") as f:
+   
      
-    
+  #27 ansluter till databasen
+  #28 gör så att man kan läsa databasen
+  #29 tar Hex värdena från tabellen colors
+  #30 kör rad 27-30
     con = sqlite3.connect("Yrkesprov1.db")
     cur = con.cursor()
     cur.execute('SELECT HEX FROM colors;')
     rows = cur.fetchall()
-
+#32 stänger rad 27-30
     con.close()
 
     
-    
+#36-38 säger att de är listor
     values = []
     labels = []
     colors = []
    
     
     
-    
+#44-45 lopar igenom varje rad som man har deklarerat. det loopar igenom listorna    
     for row in data:
          values.append(row[2])
          labels.append(row[1])
-
+#48 går igenom raderna i listan och lägger till en hashtag så att det blir hex värden.
     for row in rows:
          colors.append("#" + row[0])
          
          
 
-   # for row in rows:
-        # colors.append(row[1])
-        # colors.append(row[2]) 
-        # colors.append(row[3]) 
-        
+          
+#54 skickar labels som labels, values som values och colors som colrs till graph.html så att htmlen ska få ut värdena.
+return render_template("graph.html", labels=labels, values=values, colors=colors)
 
-    print(data)
-    #colors = "Magic Micke"           
-        
-    return render_template("graph.html", labels=labels, values=values, colors=colors)
-    #return(values)
 
 if __name__ == "__main__":
-
+#59 lägger på htlmen på port 800 och så lägger den på debuggen
     app.run(port=8000, debug=True)
     
 
- #cur.execute('SELECT "kustannus_name", "euro_brutto" FROM PORVOO ORDER BY "euro_brutto" DESC LIMIT 5')
