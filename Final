@@ -1,0 +1,36 @@
+Prov dokumentation 
+
+powershell 
+
+Först måste man laga invoke webrequest så att man får informationen av alla reäkningar. 
+Sen när man har det så måste man importera det från csv så att det blir läsbart.  
+Man måste också laga encodingen till utf-7 så att åäö syns I informationen. Man ska också ha delimeter till ;.
+sen efter det börjar man och laga databasen och vad databasen ska innehålla.
+Efter det ska man ladda ner sqlite och det gör man genom att skriva install-module I poweshell.
+Efter det kan man köra igång databasen. När man har gjort det så ska man laga en foreach-loop som går igenom informationen som man har lagat.
+Man måste också replace några tecken I t.ex euro_brutto och I tositename. Efter det så ska man laga in informationen till databasen.
+Efter det så ska man laga en till tabell med kolumnen colors. I denna tabell så ska man laga in sina färger som man ska ha.
+När man har skrivit in sina hex koder så ska man laga in informationen till databasen. 
+
+Python 
+
+Först ska man importera flask och sqlite3. Sen ska man man ansluta sqlite till sin databas och så ska man ta information från databasen.
+Man ska ta kustannus_Id, kustannus_name och euro_brutto från databasen och man ska avrunda euro_brutto så att det bara finns en decimal och så ska man också
+dela talen med 1 000 000 så att det blir lättare att läsa. Sen ska man laga de 5 firmorna som har spenderat mest pengar på räkningar och det gör man genom att
+laga order by euro_brutto och så I slutet desc limit 5 så får man de 5 som har spenderat mest. Till sist ska man ännu stänga av funktionen. Sedan ska man göra
+samma sak med färgerna. Man ansluter till databasen sen skriver man select och tar hex färgerna från tabellen. Sen kör man det och så tar det informationen och
+så när det har gjort det så kan man stänga det. Sen när man gjort det så ska man deklarera values,labels och colors som listor. Sen ska man loopa igenom all
+information som man har I listorna, det loopar igenom den rad man har deklarerat. I colors ska man laga till en hashtag så att hex värden blir hex värden.
+Sen ska man skicka alla listor till graph.html och till sist ska man lägga på htmlen på port 8000. 
+
+ 
+
+Graph.html 
+
+Man kan börja med att ladda ner extensionen jinja. Sen börjar genom att delarera att det är html.  Sen ska man deklarera att htmlen ska skrivas
+på engelska efter det ska man öppna headen och säga att formatet är UTF-8. Efter det lagar man titeln och titeln ska vara chart när man har gjort
+det så ska man importera chart.js. Efter det så ska man stänga headen. Sen när man har gjort det så kan man öppna bodyn och så kan man laga hur
+många pixlar som sin tabell ska vara. Efter det så ska man öppna script och så ska man laga sitt diagram och säga hurdant diagram man vill ha.
+Sen ska man ta informationen från listorna och det gör man med hjälp av jinja. Sen kan man lägga på gränsfärgen och deklarera hur tjock den och
+det är den linjen som är imellan färgerna på grafen. Sen lagar man titeln uppe på sidan och där ska stå top5 kostnads ställen i borgå(i miljoner €).
+Till sist stänger man script, bodyn och htmlen. 
