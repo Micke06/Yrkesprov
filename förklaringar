@@ -1,18 +1,17 @@
-flask
-python
-pip
-jinja2
-powershell
-sqlite
-integer
-text
-real
-parameter
-invoke-sqlitequery
-invoke-webrequest
-variabel
-pipe
-this
-<head>
-<meta>
-<body>
+flask= supportar många olika extensions som lägger till applikationsfunktioner.
+python=Python är ett programeringsspråk som kom ut 1991 och grundaren av python är Guido van Rossum. Python är en av det mest använda programerings språket. Många olika firmor använder också python som t.ex Nasa, Pixar, Netflix och Facebook. Python är mera avancerat än de flesta programeringsspråken. Man kan använda python t.ex när man lagar websidor eller att laga olika spel. 
+pip= pip är ett program som installerar paket för python.
+jinja2=Jinja är en web template engine för python. Jinja är likt django template engine. Man laddar ner jinja genom att skriva $pip install –U jinja2 I terminalen. Jinja kom ut 08-26-2008 och jinja var gjort I python. Jinja ersätter speciella placeholders I en template med den data man vill ha.. När man använder jinja så har man använder man ofta det här {{      }}, man kan också använda samma tecken med procent tecken på båda sidorna {{%     %}} . 
+powershell=powershell är ett program som är färdigt instalerat på windows datorer. powershell är ett programerinsspråk som är lätt att använda. syntaxet för powershell är verb + variabel. powershell grundades för 16 år sedan den 14 november 2006.
+sqlite= med sqlite kan man laga databaser som inte tar mycket utrymme och de är snabba(5ms). sqlite är den mest använda databas enginen som finns och den är inbyggd i telefoner och de flesta datorer.
+integer= integer är en datatyp och intger är heltal.
+text=datatyp som är normal text.
+real= datatyp som är decimaltal.
+parameter= parametrar är palceholders för variabler. så man kan använda variabeln istället för den riktiga informationen.
+invoke-sqlitequery= kör ett sql script och en sql databas.
+invoke-webrequest=tar informationen från den websidan som man har länkat i en teckensträng efter invoke-webrequest.
+variabel= man deklarer t.ex information som ett ord istället för att skriva långa rader.
+this= this referar till det aktullea objektet.
+<head>= den information som visas på websidan.
+<meta>= metadata är information av data.
+<body>=innehåller all information i ett html dokument
